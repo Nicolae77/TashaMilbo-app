@@ -8,13 +8,17 @@
     
     <!-- ============================ COMPONENT 1 ================================= -->
     {% if not cart_items %}
+    <br> <br> <br> <br> <br> <br> <br>
+
      <h2 class="text-center">Your shopping cart is Empty</h2>
      <br>
      <div class="text-center">
         <a href="{% url 'store' %}" class="btn btn-secondary">Continue Shopping</a>
      </div>
+     <br> <br>
 
     {% else %}
+    <br> <br>
     <div class="row">
         <aside class="col-lg-9">
     <div class="card">
@@ -28,7 +32,7 @@
     </tr>
     </thead>
     <tbody>
-
+    
     {% for cart_item in cart_items %}
     <tr>
         <td>
@@ -102,7 +106,7 @@
     </div> <!-- row.// -->
     {% endif %}
     <!-- ============================ COMPONENT 1 END .// ================================= -->
-    
+    <br> <br> <br> <br> <br> <br> <br>
     </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
