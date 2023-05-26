@@ -6,6 +6,8 @@ import datetime
 from .models import Order, Payment, OrderProduct
 import json
 from store.models import Product
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 # Create your views here.
 
 def payments(request):
@@ -42,10 +44,24 @@ def payments(request):
         orderproduct = OrderProduct.objects.get(id=orderproduct.id)
         orderproduct.variations.set(product_variation)
         orderproduct.save()
-
+        
+        # Reduce the quantity of sold products
         product = Product.objects.get(id=item.product_id)
         product.stock -= item.quantity
         product.save()
+        
+        # Clear cart
+    CartItem.objects.filter(user=request.user).delete()
+
+    mail_subject = "Thank you for your order"
+    message = render_to_string('orders/order_recieved_email.html', {
+        'user': request.user,
+        'order': order,
+
+            })
+    to_email = request.user.email
+    send_email = EmailMessage(mail_subject, message, to=[to_email])
+    send_email.send()
 
 
     return render(request, 'orders/payments.html')
