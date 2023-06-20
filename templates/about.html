@@ -3,8 +3,117 @@
 {% load static %}
 
 {% block content %}
-
+<br><br>
 <h1 class="text-center">About</h1>
+<br><br>
+    <section class="section">
+      <div class="about-center section-center">
+        <article class="about-img">
+          <img src="{% static './images/about.jpg' %}" alt="" />
+        </article>
+        <article class="about">
+          <!-- btn container -->
+          <div class="btn-container">
+            <button class="tab-btn active" data-id="history">history</button>
+            <button class="tab-btn" data-id="vision">vision</button>
+            <button class="tab-btn" data-id="goals">goals</button>
+          </div>
+          <div class="about-content">
+            <!-- single item -->
+            <div class="content active" id="history">
+              <h4>History</h4>
+              <p>
+                Fashion designing has indeed come a long way from the mere designing
+                of clothing. ... The origin of fashion designing dates as far back as
+                  1826. Charles Frederick Worth is believed to be the first fashion 
+                  designer of the world, from 1826 to 1895. Charles, who was earlier
+                  a draper, set up a fashion house in Paris.
+                  Fashion designing has indeed come a long way from the mere designing
+                of clothing. ... The origin of fashion designing dates as far back as
+                  1826. Charles Frederick Worth is believed to be the first fashion 
+                  designer of the world, from 1826 to 1895. Charles, who was earlier
+                  a draper, set up a fashion house in Paris.
+                  Fashion designing has indeed come a long way from the mere designing
+                of clothing. ... The origin of fashion designing dates as far back as
+                  1826. 
+              </p>
+            </div>
+            <!-- end of single item -->
+            <!-- single item -->
+            <div class="content" id="vision">
+              <h4>Vision</h4>
+              <p>
+                We strive to be a global leader in fashion-knit and fashion outerwear
+                by empowering innovation and design to provide total customer satisfaction.
+                We strive to be a caring and well-managed organization for our business
+                partners ,customers and employees, and a responsible corporate citizen
+                  to our society. We strive to be a global leader in fashion-knit and fashion outerwear
+                  by empowering innovation and design to provide total customer satisfaction.
+                  We strive to be a caring and well-managed organization for our business
+                  partners ,customers and employees, and a responsible corporate citizen
+                    to our society. We strive to be a global leader in fashion-knit and fashion outerwear
+                    by empowering innovation and design to provide total customer satisfaction.
+                    
+                
+              </p>
+            </div>
+            <!-- end of single item -->
+            <!-- single item -->
+            <div class="content" id="goals">
+              <h4> Goals</h4>
+              <p>
+                Anticipating Consumer Trends. A fashion designer can't sell or profit
+                from her designs if the public isn't interested in buying them. ...
+                Creating Clothing Designs. ...
+                Marketing Clothing and Accessories. ...
+                Forming Networking Connections. Anticipating Consumer Trends. A fashion designer can't sell or profit
+                from her designs if the public isn't interested in buying them. ...
+                Creating Clothing Designs. ...
+                Marketing Clothing and Accessories. ...
+                Forming Networking Connections.Anticipating Consumer Trends. A fashion designer can't sell or profit
+                from her designs if the public isn't interested in buying them. ...
+                Creating Clothing Designs. ...
+                Marketing Clothing and Accessories. ...
+                Forming Networking Connections.
+              </p>
+            </div>
+            <!-- end of single item -->
+          </div>
+        </article>
+      </div>
+    </section>
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    const about = document.querySelector(".about");
+const btns = document.querySelectorAll(".tab-btn");
+const articles = document.querySelectorAll(".content");
+about.addEventListener("click", function(e) {
+  const id = e.target.dataset.id;
+  if (id) {
+    // remove selected from other buttons
+    btns.forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    // hide other articles
+    articles.forEach(function(article) {
+      article.classList.remove("active");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+});
+  </script>
+  </body>
+</html>
+
 
 
 {% endblock %}
