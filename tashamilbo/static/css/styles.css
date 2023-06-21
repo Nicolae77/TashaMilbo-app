@@ -38,6 +38,7 @@ img {
   height: 20rem;
   margin-left: 20px;
   margin-bottom:50px;
+  
 }
 @media screen and (min-width: 992px) {
   .about-img {
@@ -99,5 +100,9 @@ img {
   display: block;
 }
 
-
+.img_dashboard {
+  width: 10rem;
+  height: 20rem;
+  border-radius: 50%;
+} 
 
