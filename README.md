@@ -10,6 +10,10 @@ To deploy app to GCP App Engine
 ```sh
 gcloud app deploy
 ```
+To run the django app in gloud
+```sh
+gcloud app browse
+```
 
 Start proxy for DB in order to develop from local and connect to cloud DB
 Open a terminal and run the proxy server

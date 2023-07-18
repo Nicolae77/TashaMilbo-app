@@ -24,6 +24,7 @@ env_variables:
     SETTINGS_NAME: django_settings
     # This setting is used in settings.py to configure your ALLOWED_HOSTS
     APPENGINE_URL: django-e-commerce-392411.ew.r.appspot.com
+    CUSTOM_DOMAIN: tasha-milbo.com
 
 handlers:
 # This configures Google App Engine to serve the files in the app's static

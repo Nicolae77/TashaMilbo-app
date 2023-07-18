@@ -57,13 +57,15 @@ SECRET_KEY = env("SECRET_KEY")
 # running in production. The URL will be known once you first deploy
 # to App Engine. This code takes the URL and converts it to both these settings formats.
 APPENGINE_URL = env("APPENGINE_URL", default=None)
+CUSTOM_DOMAIN = env("CUSTOM_DOMAIN", default=None)
 if APPENGINE_URL:
     # Ensure a scheme is present in the URL before it's processed.
     if not urlparse(APPENGINE_URL).scheme:
         APPENGINE_URL = f"https://{APPENGINE_URL}"
 
-    ALLOWED_HOSTS = [urlparse(APPENGINE_URL).netloc]
-    CSRF_TRUSTED_ORIGINS = [APPENGINE_URL]
+    CUSTOM_DOMAIN_URL = f"https://{CUSTOM_DOMAIN}"
+    ALLOWED_HOSTS = [urlparse(APPENGINE_URL).netloc, urlparse(CUSTOM_DOMAIN_URL).netloc]
+    CSRF_TRUSTED_ORIGINS = [APPENGINE_URL, CUSTOM_DOMAIN_URL]
     SECURE_SSL_REDIRECT = True
 else:
     ALLOWED_HOSTS = ["*"]
@@ -115,9 +117,10 @@ MIDDLEWARE = [
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
-SESSION_EXPIRE_SECONDS = 60  # 1 minute
-SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
-SESSION_TIMEOUT_REDIRECT = 'accounts/login'
+# SESSION_EXPIRE_SECONDS = 60  # 1 minute
+# SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+# SESSION_TIMEOUT_REDIRECT = 'accounts/login'
+
 
 ROOT_URLCONF = 'tashamilbo.urls'
 
